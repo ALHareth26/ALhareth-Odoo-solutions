@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_assets_list" model="ir.ui.view">
+        <field name="name">hr.employee.assets.list</field>
+        <field name="model">hr.employee.assets</field>
+        <field name="arch" type="xml">
+            <list decoration-info="state == 'draft'" decoration-success="state == 'assigned'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="serial_number"/>
+                <field name="asset_value" sum="Total Value"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_assets_form" model="ir.ui.view">
+        <field name="name">hr.employee.assets.form</field>
+        <field name="model">hr.employee.assets</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="serial_number"/>
+                            <field name="issue_date"/>
+                            <field name="asset_value"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_assets" model="ir.actions.act_window">
+        <field name="name">عهد الموظفين</field>
+        <field name="res_model">hr.employee.assets</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_super_hr_root" name="Super HR Pro" sequence="1"/>
+    <menuitem id="menu_hr_management" name="إدارة الموارد" parent="menu_super_hr_root" sequence="10"/>
+    <menuitem id="menu_hr_assets_list" name="العهد والأصول" parent="menu_hr_management" action="action_hr_assets" sequence="20"/>
+</odoo>

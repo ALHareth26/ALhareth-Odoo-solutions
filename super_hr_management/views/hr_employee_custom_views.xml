@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_pro_hareth" model="ir.ui.view">
+        <field name="name">hr.employee.form.pro.hareth</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Super HR (Hareth Malik)" name="pro_hareth">
+                    <group>
+                        <group string="الرواتب والمالية">
+                            <field name="basic_salary"/>
+                            <field name="housing_allowance"/>
+                            <field name="transport_allowance"/>
+                            <field name="insurance_deduction"/>
+                            <field name="net_salary" decoration-bf="1" decoration-success="net_salary &gt; 0"/>
+                        </group>
+                        <group string="التقييم والوثائق">
+                            <field name="registration_number"/>
+                            <field name="performance_score" widget="priority"/>
+                            <field name="country_id" options="{'no_create': True}"/>
+                            <field name="employment_document" widget="binary"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
