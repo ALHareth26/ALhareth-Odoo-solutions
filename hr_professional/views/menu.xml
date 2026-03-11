@@ -1,0 +1,4 @@
+<odoo>
+    <menuitem id="menu_hr_prof_root" name="HR Professional" sequence="5"/>
+    <menuitem id="menu_hr_prof_data" name="Master Data" parent="menu_hr_prof_root" action="hr.open_view_employee_list_my"/>
+</odoo>
