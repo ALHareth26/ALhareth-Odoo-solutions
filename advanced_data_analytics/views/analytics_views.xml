@@ -1,0 +1,45 @@
+<odoo>
+    <record id="view_analytics_pivot" model="ir.ui.view">
+        <field name="model">analytics.data.cube</field>
+        <field name="arch" type="xml">
+            <pivot string="Sales Analysis">
+                <field name="rfm_score" type="col"/>
+                <field name="partner_id" type="row"/>
+                <field name="total_revenue" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_analytics_form" model="ir.ui.view">
+        <field name="model">analytics.query.engine</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_refresh_data" string="Sync Data" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="o_analytics_dashboard">
+                        <Component T="registry.category('public_components').get('analytics_kpi')"/>
+                    </div>
+                    
+                    <group>
+                        <field name="name"/>
+                        <field name="last_run" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_analytics_cube" model="ir.actions.act_window">
+        <field name="name">Data Explorer</field>
+        <field name="res_model">analytics.data.cube</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+    <record id="action_analytics_query" model="ir.actions.act_window">
+        <field name="name">Analytics Dashboard</field>
+        <field name="res_model">analytics.query.engine</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

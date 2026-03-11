@@ -1,0 +1,15 @@
+<templates xml:space="preserve">
+    <t t-name="advanced_data_analytics.KpiCard">
+        <div style="background: #017E84; color: white; padding: 30px; border-radius: 8px; margin-bottom: 20px;">
+            <div style="font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">Global Total Revenue</div>
+            <div style="font-size: 2.5rem; font-weight: bold;">
+                <t t-if="state and state.value !== undefined">
+                    $<t t-esc="state.value.toLocaleString()"/>
+                </t>
+                <t t-else="">
+                    $0
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

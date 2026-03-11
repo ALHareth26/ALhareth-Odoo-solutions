@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_analytics_pro_root" name="Analytics Pro" sequence="10"/>
+    <menuitem id="menu_analytics_dashboard" name="Live Dashboard" parent="menu_analytics_pro_root" action="action_analytics_query" sequence="1"/>
+    <menuitem id="menu_analytics_pivot" name="Data Explorer" parent="menu_analytics_pro_root" action="action_analytics_cube" sequence="2"/>
+</odoo>
