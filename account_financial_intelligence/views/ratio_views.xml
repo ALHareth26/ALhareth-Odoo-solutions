@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_ratio_form" model="ir.ui.view">
+        <field name="model">financial.ratio.analysis</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="mb-4">
+                        <Component T="registry.category('public_components').get('ratio_dashboard')"/>
+                    </div>
+                    <group>
+                        <group string="Period Details">
+                            <field name="name"/>
+                            <field name="date"/>
+                        </group>
+                        <group string="Balance Sheet Summary">
+                            <field name="current_assets" decoration-bf="1"/>
+                            <field name="current_liabilities" decoration-bf="1"/>
+                            <field name="liquidity_ratio" widget="float" decoration-success="liquidity_ratio >= 1.5" decoration-danger="liquidity_ratio &lt; 1.5"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ratio_analysis" model="ir.actions.act_window">
+        <field name="name">Financial Intelligence</field>
+        <field name="res_model">financial.ratio.analysis</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_finance_intel_root" name="Financial Intel" sequence="1" web_icon="account,static/description/icon.png"/>
+    <menuitem id="menu_ratio_analysis" name="Liquidity Analysis" parent="menu_finance_intel_root" action="action_ratio_analysis"/>
+</odoo>
