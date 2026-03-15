@@ -1,0 +1,23 @@
+<templates xml:space="preserve">
+    <t t-name="boss_nexus.DashboardTemplate" owl="1">
+        <div class="o_action_manager p-4 bg-light" style="height: 100vh;">
+            <div class="container">
+                <h1 class="display-4 text-primary">Nexus Command Center</h1>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card shadow p-4 text-center">
+                            <h3>Total Nodes</h3>
+                            <p class="display-1"><t t-esc="state.total"/></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card shadow p-4 text-center border-success">
+                            <h3 class="text-success">Nodes Online</h3>
+                            <p class="display-1"><t t-esc="state.online"/></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

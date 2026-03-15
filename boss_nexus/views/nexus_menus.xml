@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_nexus_root" name="NEXUS" sequence="10"/>
+    <menuitem id="menu_nexus_dash" name="Dashboard" parent="menu_nexus_root" action="action_nexus_dashboard" sequence="1"/>
+    <menuitem id="menu_nexus_nodes" name="Nodes" parent="menu_nexus_root" action="action_nexus_endpoint_act" sequence="10"/>
+</odoo>
